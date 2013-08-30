@@ -12,7 +12,7 @@ function getAllEntityNames() {
 	return allEntities;
 }
 
-function getFunctionData( required array entities ) {
+function getFunctionData( required array entities ) hint="I return stats on how many custom functions an entity has. This is determined by counting functions that have a lowercase letter in them as implicit CF generated functions are all uppercase." {
 	var data = [];
 	var functionInfo = '';
 	
@@ -23,7 +23,7 @@ function getFunctionData( required array entities ) {
 		
 		for ( var i = 1; i <= allFunctionCount; i++ ) {
 			functionInfo = meta.functions[ i ];
-			if ( reFind( '[^A-Z0-9_]', functionInfo.name ) ) {
+			if ( reFind( '[a-z]', functionInfo.name ) ) {
 				if ( left( functionInfo.name, 3 ) == 'pre' || left( functionInfo.name, 4 ) == 'post' ) {
 					functionResults.eventFunctionCount++;
 				} else {

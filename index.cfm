@@ -4,21 +4,9 @@ param name="url.startEntity" default="";
 param name="url.excludeEntities" default="";
 param name="url.isRelationshipsOnly" default="false";
 variables.depth = 0;
-	
-	
-function getAllEntityNames() {
-	var ormClassMetaData = ORMGetSessionFactory().getAllClassMetadata();
-	var allEntities = [];
-	
-	for ( var ormClass in ormClassMetaData ) {
-		arrayAppend( allEntities, ormClass );
-	}
-	
-	arraySort( allEntities, "textnocase" );
-	return allEntities;
-}
+bear = new services.bear();
 
-allEntityNames = getAllEntityNames();
+allEntityNames = bear.getAllEntityNames();
 
 function display( entity ) {
 	//entity can be a full path, especially when defined in relationships, and we want to only get the last part

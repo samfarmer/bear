@@ -17,6 +17,8 @@ if ( fileExists( request.dgmrRunningDirectory & "settings.cfm" ) ) {
 this.ormEnabled = true;
 this.ormSettings.useDBForMapping = false;
 
+this.mappings[ "/ui" ] = request.dgmrRunningDirectory & "ui";
+this.mappings[ "/services" ] = request.dgmrRunningDirectory & "services";
 
 function onRequestStart() {
 	if ( structKeyExists( url, "ormReload" ) ) {

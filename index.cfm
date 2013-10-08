@@ -69,7 +69,7 @@ function display( entity ) {
     	
     	<script>
     	$(document).ready( function() {
-    		$(".hasPopover").popover( { placement: "left" } );
+    		$(".hasPopover").popover( { placement: "top", trigger: "hover", delay: { show: 500, hide: 100 } } );
 		})
     	</script>
     	
